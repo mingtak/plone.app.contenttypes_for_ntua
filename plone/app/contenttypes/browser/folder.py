@@ -15,6 +15,7 @@ from plone.registry.interfaces import IRegistry
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.contentprovider.interfaces import IContentProvider
+from DateTime import DateTime
 
 HAS_SECURITY_SETTINGS = True
 try:
@@ -156,7 +157,8 @@ class FolderView(BrowserView):
                 'created',
                 'modified',
                 'last_comment_date']:
-            value = self.toLocalizedTime(value, long_format=1)
+#            value = self.toLocalizedTime(value, long_format=1)
+            value = DateTime(value).strftime('%Y/%m/%d')
 
         return {
             # 'title': _(fieldname, default=fieldname),
