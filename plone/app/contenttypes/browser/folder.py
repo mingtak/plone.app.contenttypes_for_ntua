@@ -89,7 +89,9 @@ class FolderView(BrowserView):
 
     @property
     def friendly_types(self):
-        return self.portal_state.friendly_types()
+#        return self.portal_state.friendly_types()
+# 不知哪裏出問題，先暫時解 
+        return ['AdLink', 'Document', 'File', 'Folder', 'Profile', 'News Item']
 
     @property
     def isAnon(self):
